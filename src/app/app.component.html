@@ -1,0 +1,35 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to Glomo. 
+    Please choose {{game}}
+  </h1>
+  <!-- <div>
+    <button class="" (click)="c()" >New Buttton</button>
+  </div> -->
+
+  <div>
+    
+    <div *ngIf="successMsg.length>0">{{successMsg}}</div>
+    <div *ngIf="failureMsg.length>0">{{failureMsg}}</div>
+      <table>
+          
+          <tbody>
+            <tr *ngFor="let entry of choices; let idx = index">
+                <td> {{ entry.description }}</td>
+                <td>
+                    <input type="radio" name="radiogroup" 
+            [checked]="idx === 0" 
+            [value]="entry.id" (click)="selection(entry.id)">
+                </td>
+            </tr>
+          </tbody>
+        </table>
+     <div>
+    <button class="" (click)="saveChoice()" >Submit choice</button>
+  </div> 
+  </div>
+  
+</div>
+
+<router-outlet></router-outlet>
